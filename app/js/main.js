@@ -10,7 +10,13 @@ $((function(){
     $('.slider-dots').slick({
         slidesToShow: 4,
         slidesToScroll: 4,
-        asNavFor: '.header__slider'
+        asNavFor: '.header__slider',
+        responsive: [
+            {
+                breakpoint: 961,
+                settings: "unslick"
+            }
+        ]
     });
 
     $('.surf-slider').slick({
@@ -18,7 +24,35 @@ $((function(){
         slidesToScroll: 1,
         prevArrow: '<img src="images/arrow-left.svg" class="slider-arrows slider-arrows__left" alt=""></img>',
         nextArrow: '<img src="images/arrow-right.svg" class="slider-arrows slider-arrows__right" alt=""></img>',
-        asNavFor: '.slider-map'
+        asNavFor: '.slider-map',
+        responsive: [
+            {
+            breakpoint: 1210,
+            settings: {
+                slidesToShow: 3
+                }
+            },
+            {
+            breakpoint: 900,
+            settings: {
+                slidesToShow: 2
+                }
+            },
+            {
+            breakpoint: 720,
+            settings: {
+                slidesToShow: 1,
+                centerMode: true
+                }
+            },
+            {
+            breakpoint: 426,
+            settings: {
+                slidesToShow: 1,
+                centerMode: false
+                }
+            }
+        ]
     });
 
     $('.slider-map').slick({
@@ -26,7 +60,29 @@ $((function(){
         slidesToScroll: 1,
         arrows: false,
         asNavFor: '.surf-slider',
-        focusOnSelect: true
+        focusOnSelect: true,
+        responsive: [
+            {
+            breakpoint: 1103,
+            settings: {
+                slidesToShow: 3
+                }
+            },
+            {
+            breakpoint: 1064,
+            settings: {
+                slidesToShow: 2,
+                centerMode: true
+                }
+            },
+            {
+            breakpoint: 720,
+            settings: {
+                slidesToShow: 1,
+                centerMode: true
+                }
+            }
+        ]
     });
 
     $(".travel__slider, .shop__slider").slick({
@@ -80,5 +136,9 @@ $((function(){
 
      $('.surfboard-box__circle').on('click', function() {
         $(this).toggleClass('active')
-     })
+     });
+
+     $('.menu-btn').on('click', function() {
+        $('.menu').toggleClass('active');
+     });
 }));
